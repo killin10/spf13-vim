@@ -1,0 +1,102 @@
+" General Configurations {
+
+    " highlight current line
+    set cursorline
+    " color the 81st column
+    set colorcolumn=81
+
+    " Window Management {
+        " window size
+        " height
+        map <S-j> <C-W>+
+        map <S-k> <C-W>-
+        " width
+        map <S-h> <C-W><
+        map <S-l> <C-W>>
+        " move along several windows
+        "map <C-j> <C-W>j
+        "map <C-k> <C-W>k
+        "map <C-h> <C-W>h
+        "map <C-l> <C-W>l
+        "" open next buffer
+        map <S-n> :bn!<cr>
+        "" open previous buffer
+        map <S-p> :bp!<cr>
+    " }
+
+" }
+
+" Plugin Configurations {
+
+    " tagbar {
+        if isdirectory(expand("~/.vim/bundle/tagbar"))
+            map tt :TagbarToggle<cr>
+            " width of the tagbar window in characters
+            let g:tagbar_width=40
+        endif
+    " }
+
+    " nerdtree {
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            " do not close the tree window after opening a file
+            let g:NERDTreeQuitOnOpen=0
+            " nerdtree window position
+            let g:NERDTreeWinPos="left"
+            " nerdtree window size
+            let g:NERDTreeWinSize=40
+            map nt :NERDTreeToggle<cr>
+            " open nerdtree and tagbar by one key
+            map wm :NERDTreeToggle<cr> :TagbarToggle<cr>
+            " find current file in the tree
+            map ntf :NERDTreeFind<cr>
+            " change tree root to current directory
+            map ntc :NERDTreeCWD<cr>
+        endif
+    " }
+
+    " nerdcommenter {
+        map cm <plug>NERDCommenterToggle
+    " }
+
+    " vim-go {
+        " enable syntax-highlighting for functions, methods and struts
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        " Enable goimports to automatically insert import paths instead of
+        " gofmt
+        let g:go_fmt_command = "goimports"
+        " do not show errors for the fmt command
+        " let g:go_fmt_fail_silently = 1
+        " disable auto fmt on save
+        " let g:go_fmt_autosave = 0
+        " Disable opening browser after posting your snippet to
+        " play.golang.org
+        let g:go_play_open_browser = 0
+        " By default when :GoInstallBinaries is called, the binaries are
+        " installed to $GOBIN or $GOPATH/bin. To change it
+        " let g:go_bin_path = expand("~/app/gotools")
+        " key mappings
+        au FileType go nmap <leader>r <Plug>(go-run)
+        au FileType go nmap <leader>b <Plug>(go-build)
+        au FileType go nmap <leader>t <Plug>(go-test)
+        au FileType go nmap <leader>c <Plug>(go-coverage)
+        au FileType go nmap <Leader>ds <Plug>(go-def-split)
+        au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+        au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+        au FileType go nmap <Leader>gd <Plug>(go-doc)
+        au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+        au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+        au FileType go nmap <Leader>s <Plug>(go-implements)
+        au FileType go nmap <Leader>i <Plug>(go-info)
+        au FileType go nmap <Leader>e <Plug>(go-rename)
+    " }
+
+    " YCM {
+        " enable completion preview candidate window
+        set completeopt+=preview
+    " }
+
+" }
