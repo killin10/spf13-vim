@@ -24,6 +24,9 @@
         map <S-p> :bp!<cr>
     " }
 
+    " easy <esc>
+    inoremap jj <ESC>
+
 " }
 
 " Plugin Configurations {
