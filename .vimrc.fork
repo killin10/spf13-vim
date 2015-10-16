@@ -27,6 +27,9 @@
     " easy <esc>
     inoremap jj <ESC>
 
+    " disable mouse usage
+    set mouse=
+
 " }
 
 " Plugin Configurations {
