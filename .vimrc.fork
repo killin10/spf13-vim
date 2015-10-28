@@ -30,6 +30,8 @@
     " disable mouse usage
     set mouse=
 
+    " encoding
+    set fileencodings=ucs-bom,utf-8,gbk,utf-16le,cp1252,iso-8859-15
 " }
 
 " Plugin Configurations {
