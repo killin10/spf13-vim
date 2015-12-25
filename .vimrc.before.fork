@@ -1,2 +1,2 @@
 " spf13-vim features
-let g:spf13_bundle_groups=['general', 'writing', 'programming', 'python', 'javascript', 'html', 'misc', 'go', 'youcompleteme']
+let g:spf13_bundle_groups=['general', 'writing', 'programming', 'python', 'javascript', 'html', 'misc', 'go', 'youcompleteme', 'scala']
