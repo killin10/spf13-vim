@@ -112,5 +112,6 @@
 " Deal with spf13-vim Configuration {
     " do not leave me in insert mode 
     " when I press <esc> to close the completion popup
-    iunmap <expr> <Esc>
+    " 2015-12-29: spf13-vim have fixed this bug
+    "iunmap <expr> <Esc>
 " }
