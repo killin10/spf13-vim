@@ -32,6 +32,7 @@
 
     " encoding
     set fileencodings=ucs-bom,utf-8,gbk,utf-16le,cp1252,iso-8859-15
+    set encoding=utf8
 " }
 
 " Plugin Configurations {
