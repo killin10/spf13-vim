@@ -1,0 +1,3 @@
+" My custom plugins {
+    Bundle 'vim-scripts/DoxygenToolkit.vim'
+" }

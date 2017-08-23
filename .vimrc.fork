@@ -38,6 +38,10 @@
 " }
 
 " Plugin Configurations {
+    " DoxygenToolkit {
+        let g:DoxygenToolkit_commentType="C++"
+        map fg :Dox<cr>
+    " }
 
     " tagbar {
         if isdirectory(expand("~/.vim/bundle/tagbar"))
