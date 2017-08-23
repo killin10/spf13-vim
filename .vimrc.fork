@@ -112,6 +112,47 @@
 
 " }
 
+" C/CPP File Comment {
+    map <F4> :call FileComment()<cr>
+    function AddFileComment()
+        call append(0, "//")
+        call append(1, "// @file ".expand("%:t"))
+        call append(2, "// @brief ")
+        call append(3, "// ")
+        call append(4, "// @version 1.0")
+        call append(5, "// @date ".strftime("%a %b %e %H:%M:%S %Y"))
+        call append(6, "// ")
+        call append(7, "// @copyright Copyright (C) ".strftime("%Y"))
+        call append(8, "// @author Shi Wei (shiwei2012@gmail.com)")
+        call append(9, "//")
+        echohl WarningMsg | echo "Successful in adding the copyright."
+                    \ | echohl None
+    endfunc
+
+    function UpdateFileComment()
+        normal m'
+        execute '/@file/s@e.*$@\="e ".expand("%:t")@'
+        execute "noh"
+        normal ''
+        echohl WarningMsg | echo "Successful in updating the copyright."
+                    \ | echohl None
+    endfunc
+
+    function FileComment()
+        let n = 1
+        while n < 10
+            let line = getline(n)
+            if (line =~ '^//\s*\S* @file \S*.*$') ||
+                        \ (line =~ '^ *\s*\S* @file \S*.*$')
+                call UpdateFileComment()
+                return
+            endif
+            let n = n + 1
+        endwhile
+        call AddFileComment()
+    endfunc
+" }
+
 " Deal with spf13-vim Configuration {
     " do not leave me in insert mode 
     " when I press <esc> to close the completion popup
