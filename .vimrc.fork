@@ -113,6 +113,8 @@
     " YCM {
         " enable completion preview candidate window
         set completeopt+=preview
+        " don't ask for ycm config loading
+        let g:ycm_confirm_extra_conf = 0
     " }
 
 " }
