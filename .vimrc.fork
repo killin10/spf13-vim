@@ -39,7 +39,8 @@
 
 " Plugin Configurations {
     " DoxygenToolkit {
-        let g:DoxygenToolkit_commentType="C++"
+        "let g:DoxygenToolkit_commentType="C++"
+        let g:DoxygenToolkit_briefTag_pre=""
         map fg :Dox<cr>
     " }
 
@@ -119,17 +120,13 @@
 " C/CPP File Comment {
     map <F4> :call FileComment()<cr>
     function AddFileComment()
-        call append(0, "//")
-        call append(1, "// @file ".expand("%:t"))
-        call append(2, "// @brief ")
-        call append(3, "// ")
-        call append(4, "// @version 1.0")
-        call append(5, "// @date ".strftime("%a %b %e %H:%M:%S %Y"))
-        call append(6, "// ")
-        call append(7, "// @copyright Copyright (C) ".strftime("%Y"))
-        call append(8, "// @author Shi Wei (shiwei2012@gmail.com)")
-        call append(9, "//")
-        echohl WarningMsg | echo "Successful in adding the copyright."
+        call append(0, "/**")
+        "call append(1, "// @file ".expand("%:t"))
+        call append(1, " * ")
+        call append(2, " * @date ".strftime("%a %b %e %H:%M:%S %Y"))
+        call append(3, " * @author Shi Wei (shiwei2012@gmail.com)")
+        call append(4, " */")
+        echohl WarningMsg | echo "Successful in adding the comment."
                     \ | echohl None
     endfunc
 
@@ -138,7 +135,7 @@
         execute '/@file/s@e.*$@\="e ".expand("%:t")@'
         execute "noh"
         normal ''
-        echohl WarningMsg | echo "Successful in updating the copyright."
+        echohl WarningMsg | echo "Successful in updating the file comment."
                     \ | echohl None
     endfunc
 
@@ -146,9 +143,9 @@
         let n = 1
         while n < 10
             let line = getline(n)
-            if (line =~ '^//\s*\S* @file \S*.*$') ||
-                        \ (line =~ '^ *\s*\S* @file \S*.*$')
-                call UpdateFileComment()
+            if (line =~ '^//\s*\S* @date \S*.*$') ||
+                        \ (line =~ '^ *\s*\S* @date \S*.*$')
+                "call UpdateFileComment()
                 return
             endif
             let n = n + 1
