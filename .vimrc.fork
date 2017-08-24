@@ -115,6 +115,14 @@
         set completeopt+=preview
         " don't ask for ycm config loading
         let g:ycm_confirm_extra_conf = 0
+        nnoremap <leader>yg :YcmCompleter GoTo<CR>
+        au FileType c,cpp nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
+        au FileType c,cpp nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
+        au FileType c,cpp nnoremap <leader>yl :YcmCompleter GoToDeclaration<CR>
+        au FileType c,cpp nnoremap <leader>yt :YcmCompleter GetType<CR>
+        au FileType c,cpp nnoremap <leader>yp :YcmCompleter GetParent<CR>
+        au FileType c,cpp nnoremap <leader>yc :YcmCompleter GetDoc<CR>
+        au FileType c,cpp nnoremap <leader>yf :YcmCompleter FixIt<CR>
     " }
 
 " }
