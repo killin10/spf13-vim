@@ -34,7 +34,13 @@
     set fileencodings=ucs-bom,utf-8,gbk,utf-16le,cp1252,iso-8859-15
     set encoding=utf8
 
-    autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 softtabstop=8
+    " use tab
+    set shiftwidth=8
+    set tabstop=8
+    set softtabstop=8
+    set noexpandtab
+
+    "autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 softtabstop=8
 " }
 
 " Plugin Configurations {
