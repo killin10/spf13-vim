@@ -131,6 +131,8 @@
         set completeopt+=preview
         " don't ask for ycm config loading
         let g:ycm_confirm_extra_conf = 0
+        let g:ycm_collect_identifiers_from_tags_files = 0
+        let g:ycm_collect_identifiers_from_comments_and_strings = 0
         nnoremap <leader>yg :YcmCompleter GoTo<CR>
         au FileType c,cpp nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
         au FileType c,cpp nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
