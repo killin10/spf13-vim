@@ -197,26 +197,26 @@
 	    set cscopetag
 	    set csto=0
 	    if filereadable("cscope.out")
-		cscope add cscope.out
-		set cscopequickfix=s-,c-,d-,i-,t-,e-
+            "cscope add cscope.out
+            set cscopequickfix=s-,c-,d-,i-,t-,e-
 	    elseif $CSCOPE_DB != ""
-		cscope add $CSCOPE_DB
+            cscope add $CSCOPE_DB
 	    endif
 	    set cscopeverbose
 	endif
 
 	func! ProduceTags()
 	    if filereadable("tags")
-		exec "!rm tags"
+            exec "!rm tags"
 	    endif
 	    if filereadable("cscope.out")
-		exec "!rm cscope.*"
+            exec "!rm cscope.*"
 	    endif
 	    exec "!find . -name \"*.h\" -o -name \"*.hpp\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.cc\" > tagscope.files"
 	    exec "!ctags --c++-kinds=+p --fields=+ialS --extra=+q -L tagscope.files"
 	    exec "!cscope -bkq -i tagscope.files"
 	    set tags+=tags
-	    cscope add cscope.out
+		"cscope add cscope.out
 	endfunc
 
 	nmap <silent> <F12> :call ProduceTags()<cr>
