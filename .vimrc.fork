@@ -35,12 +35,15 @@
     set encoding=utf8
 
     " use tab
-    set shiftwidth=8
-    set tabstop=8
-    set softtabstop=8
+    "set shiftwidth=8
+    "set tabstop=8
+    "set softtabstop=8
     set noexpandtab
+    set shiftwidth=2
+    set tabstop=2
+    set softtabstop=2
 
-    "autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 softtabstop=8
+    "autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 " }
 
 " Plugin Configurations {
@@ -187,6 +190,30 @@
     " when I press <esc> to close the completion popup
     " 2015-12-29: spf13-vim have fixed this bug
     "iunmap <expr> <Esc>
+" }
+
+" Code format using clang-format {
+		function CodeFormat()
+			" get current cursor position
+			let lineNum = line(".")
+
+			" C/CPP header file will be recognized as CPP
+			if &filetype == 'c' || &filetype == 'cpp'
+					" call external tool - astyle
+					exec "%!clang-format --style=Google"
+					echohl WarningMsg 
+						\ | echo "Code formatting done according to Google C++ Style" 
+						\ | echohl None
+			else
+					echohl WarningMsg | echo "unsupported file type: ".&filetype 
+									\ | echohl None
+			endif
+
+			" return to the previous cursor position
+			exec lineNum
+		endfunc
+
+		map <S-F> <Esc>:call CodeFormat()<CR>
 " }
 
 " ctags & cscope {
