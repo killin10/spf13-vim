@@ -1,4 +1,6 @@
 " My custom plugins {
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'jeaye/color_coded'
-" }
+		" depends on vim-operator-user
+		Bundle 'rhysd/vim-clang-format'
+		Bundle 'kana/vim-operator-user'
