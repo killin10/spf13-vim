@@ -112,7 +112,7 @@
         let g:go_play_open_browser = 0
         " By default when :GoInstallBinaries is called, the binaries are
         " installed to $GOBIN or $GOPATH/bin. To change it
-        let g:go_bin_path = expand("/usr/local/opt/go/libexec/bin")
+        "let g:go_bin_path = expand("/usr/local/opt/go/libexec/bin")
         " key mappings
         au FileType go nmap <leader>r <Plug>(go-run)
         au FileType go nmap <leader>b <Plug>(go-build)
